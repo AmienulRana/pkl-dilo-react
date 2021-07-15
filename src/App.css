@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+body {
+  background: black !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Todo-list {
+  width: 70%;
+  margin: 100px auto;
+  padding-bottom: 50px;
+  border: 3px solid #45c089;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Todo-list .input-group-text {
+  background: #45c089;
   color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
+.Todo-list .nama-list {
+  font-weight: bold;
+  color: white;
+  font-size: 21px;
+  /* margin-bottom: 30px; */
 }
+.Todo-list .nama-list.selesai {
+  color: #4e4e4e;
+  text-decoration: line-through;
+}
+.Todo-list .total-selesai p {
+  color: white;
+  font-weight: bold;
+}
+.Todo-list .total-selesai p span {
+  color: #45c089 !important;
+}
+.Todo-list .nama-list.edited {
+  transform: translateY(-10px) scale(0);
+  transition: 0.2s;
+}
+.Todo-list input.edit-list {
+  position: absolute;
+  transform: translateY(5px);
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  /* z-index: -1; */
+  border: none;
+  border-bottom: 3px solid #45c089;
+  background: none;
+  outline: none;
+  color: white;
+  display: none;
+}
+.Todo-list input.edit-list.act {
+  transform: translateY(0px);
+  display: block;
+}
+.Todo-list button.edited {
+  display: none;
 }
