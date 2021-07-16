@@ -3,10 +3,26 @@ body {
 }
 
 .Todo-list {
-  width: 70%;
+  width: 95%;
   margin: 100px auto;
   padding-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.Todo-list .list,
+.col-proggres,
+.col-selesai {
   border: 3px solid #45c089;
+  padding: 10px;
+  height: max-content;
+}
+.Todo-list .list-status-paragraf {
+  font-weight: bold;
+  color: white;
+}
+.Todo-list .sls {
+  font-weight: bold;
+  color: #45c089;
 }
 
 .Todo-list .input-group-text {
@@ -24,7 +40,31 @@ body {
 .Todo-list .nama-list.selesai {
   color: #4e4e4e;
   text-decoration: line-through;
+  animation: namaList 0.3s ease-in;
+  animation-fill-mode: forwards;
 }
+.Todo-list .col-selesai span.close {
+  color: red;
+  font-size: 21px;
+  cursor: pointer;
+}
+@keyframes namaList {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+.Todo-list .list-proggres {
+  animation: namaList 0.3s ease-in;
+  animation-fill-mode: forwards;
+}
+
 .Todo-list .total-selesai p {
   color: white;
   font-weight: bold;
@@ -36,22 +76,42 @@ body {
   transform: translateY(-10px) scale(0);
   transition: 0.2s;
 }
+.Todo-list .option {
+  background: white;
+  color: black;
+  z-index: -1;
+}
+.Todo-list .flex-column {
+  background: white;
+  z-index: 2;
+  position: absolute;
+  padding: 3px 5px;
+  margin-top: 5px;
+  display: none;
+}
+.Todo-list .flex-column.act {
+  display: flex !important;
+}
+.Todo-list .flex-column span {
+  color: #45c089;
+  margin-top: 2px;
+  cursor: pointer;
+}
 .Todo-list input.edit-list {
   position: absolute;
   transform: translateY(5px);
-
-  /* z-index: -1; */
   border: none;
   border-bottom: 3px solid #45c089;
   background: none;
   outline: none;
   color: white;
-  display: none;
+  opacity: 0;
+  transition: 0.4s;
 }
 .Todo-list input.edit-list.act {
   transform: translateY(0px);
-  display: block;
+  opacity: 1;
 }
-.Todo-list button.edited {
+.Todo-list span.edited {
   display: none;
 }
